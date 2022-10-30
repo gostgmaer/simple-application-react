@@ -1,24 +1,61 @@
 import logo from './logo.svg';
 import './App.css';
+import { FaReact } from "react-icons/fa";
+import { Md14Mp, MdAddBusiness } from "react-icons/md";
+import { IconContext } from 'react-icons';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import ModalComponent from './components/Component/Modal';
+import ToolTip from './components/Component/ToolTip';
 
+
+// toast.confiure()
 function App() {
+  const notify = () => {toast.success("It's Working as expected!",{
+    position: "top-right",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "light",})
+   
+  };
+  window.onload=()=>{
+    toast.info("It's as expected!",{
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",}
+      );
+  }
+
+
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+   
+
+
+<div>
+<IconContext.Provider value={{color:'red',size:"10rem"}} >
+       <div className="App">
+      <Md14Mp  ></Md14Mp>
+      <MdAddBusiness ></MdAddBusiness>
+     
     </div>
+    </IconContext.Provider>
+    <button onClick={notify} >Notify</button>
+    <ToastContainer />
+    {/* <ModalComponent></ModalComponent> */}
+    <ToolTip></ToolTip>
+
+</div>
+   
   );
 }
 
